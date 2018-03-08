@@ -87,10 +87,6 @@ function autoSetCanvasSize (canvas){
   }
 }
 function drawCircle(x,y,radius){
-//   context.beginPath()
-//   context.arc(x,y,radius,0,Math.PI*2)
-//   context.stroke()
-//   改成下面的就不会出现一段一段的线突出了
   context.beginPath()
 //   context.fillStyle = 'black'
   context.arc(x,y,radius,0,Math.PI*2)
@@ -100,10 +96,10 @@ function drawCircle(x,y,radius){
 function drawLine(x1,y1,x2,y2){
   context.beginPath();
 //   context.strokeStyle = 'black'
-  context.moveTo(x1,y1)//起点
+  context.moveTo(x1,y1)     //起点
   context.lineWidth = lineWidth
 //   context.lineWidth = 5
-  context.lineTo(x2,y2)//终点
+  context.lineTo(x2,y2)     //终点
   context.stroke()
   context.closePath()
 }
@@ -122,8 +118,6 @@ function listenToUser (canvas){
         canvas.ontouchstart = function(aaa){
             var x = aaa.touches[0].clientX
             var y = aaa.touches[0].clientY
-            console.log(x,y)
-            console.log(aaa)
             using = true
             if(erasereEnabled){
                 context.clearRect(x-5,y-5,10,10)
@@ -135,7 +129,6 @@ function listenToUser (canvas){
             }
         }
         canvas.ontouchmove = function(aaa){
-            console.log('边摸边动')
             var x = aaa.touches[0].clientX
             var y = aaa.touches[0].clientY
         
@@ -153,7 +146,6 @@ function listenToUser (canvas){
             }
         }
         canvas.ontouchend = function(){
-            console.log('摸完了')
             using = false
         }
     } else {
